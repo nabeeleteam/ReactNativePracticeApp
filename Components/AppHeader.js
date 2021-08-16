@@ -6,7 +6,8 @@ import { useNavigation, DrawerActions, useRoute, getFocusedRouteNameFromRoute } 
 import { ContextAPI } from './ContextAPI'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Snackbar  } from 'react-native-paper';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { showCameraIcon } from './reduxStore/actions/actions'
 
 export default function AppHeader() {
 
@@ -18,6 +19,9 @@ export default function AppHeader() {
 
     const onDismissSnackBar = () => setSnackVisible(false)
     const appHeaderLable = useSelector(state => state.appHeaderLable)
+    const cameraIcon = useSelector(state => state.cameraIcon)
+
+    const dispatch = useDispatch()
 
     const clearStorage = () => {
         AsyncStorage.clear()
@@ -28,9 +32,13 @@ export default function AppHeader() {
     useEffect(() => {
 
         setVisible(false)
-        
+
         if(appHeaderLable == "Items List") {
             setVisible(true)
+        }
+
+        if(appHeaderLable == "Gallery") {
+            dispatch(showCameraIcon())
         }
 
         return () => {
@@ -46,6 +54,10 @@ export default function AppHeader() {
             <Appbar.Content title={appHeaderLable}/>
             {
                 visible && <Appbar.Action icon="trash-can-outline" onPress={clearStorage}/>
+            }
+
+            {
+                cameraIcon && <Appbar.Action icon="camera" onPress={() => dispatch(showCameraIcon())}/>
             }
         </Appbar.Header>
 

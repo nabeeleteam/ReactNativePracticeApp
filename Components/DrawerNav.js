@@ -11,6 +11,8 @@ import { ContextAPI } from './ContextAPI'
 import { useDispatch } from 'react-redux'
 import { updatelabel } from './reduxStore/actions/actions'
 
+import Camera from './Camera';
+
 const Drawer = createDrawerNavigator();
 
 export default function DrawerNav() {
@@ -45,6 +47,12 @@ export default function DrawerNav() {
         <Drawer.Screen name="Youtube" component={ScreenTwo} 
           options={{
             drawerIcon: () => <Icons name='youtube-play' size={25} color="red"></Icons>
+          }}
+        />
+
+        <Drawer.Screen name="Gallery" component={Camera} 
+          options={{
+            drawerIcon: () => <Icons name='camera' size={25} color="black"></Icons>
           }}
         />
 

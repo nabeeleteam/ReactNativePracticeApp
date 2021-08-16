@@ -16,3 +16,10 @@ export const updatelabel = (value) => {
         value
     }
 }
+
+export const showCameraIcon = (flag) => {
+    return {
+        type: 'SHOWCAMERAICON',
+        flag
+    }
+}
