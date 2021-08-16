@@ -30,7 +30,7 @@ export default function App() {
     <>
     <Provider store={store}>
         <NavigationContainer>
-        {/* <ContextProvider> */}
+        <ContextProvider>
 
           <Stack.Navigator
             screenOptions={{
@@ -39,7 +39,7 @@ export default function App() {
           >
             <Stack.Screen name="Drawer" component={DrawerNav} />
           </Stack.Navigator>
-          {/* </ContextProvider> */}
+          </ContextProvider>
 
         </NavigationContainer>
       </Provider>
