@@ -17,9 +17,8 @@ export const updatelabel = (value) => {
     }
 }
 
-export const showCameraIcon = (flag) => {
+export const showCameraIcon = () => {
     return {
         type: 'SHOWCAMERAICON',
-        flag
     }
 }

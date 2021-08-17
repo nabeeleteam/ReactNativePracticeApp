@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux'
 import { updatelabel } from './reduxStore/actions/actions'
 
 import Camera from './Camera';
+import ImgPicker from './ImagePicker';
 
 const Drawer = createDrawerNavigator();
 
@@ -56,14 +57,19 @@ export default function DrawerNav() {
           }}
         />
 
+        <Drawer.Screen name="Image Picker" component={ImgPicker}
+          options={{
+            drawerLabel: 'Image Picker',
+            drawerIcon: () => <Icons name='camera' size={25} color="blue"></Icons>
+          }}
+        />
+      
       <Drawer.Screen name="MaterialTop" component={TopTabls} 
           options={{
             drawerLabel: 'Async Storage',
             drawerIcon: () => <Icons name='file-archive-o' size={25} color="blue"></Icons>
           }}
         />
-
-
       
       </Drawer.Navigator>
       </>
